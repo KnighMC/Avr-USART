@@ -29,25 +29,29 @@ clone the repository from KnightMC/Handling-avr-bits add the USART RS232 folder 
 
 #define HANDLING_AVR_BITS
 
-Example when HANDLING_BITS is enable
+Example when HANDLING_BITS is enable:
 
-void USART_transmitChar(uint8_t character) {
-    while (!UCSR0Abits.UDRE);
-    UDR0 = character;
-    while (!UCSR0Abits.TXC);
+  void USART_transmitChar(uint8_t character) {
+
+      while (!UCSR0Abits.UDRE);
+      UDR0 = character;
+      while (!UCSR0Abits.TXC);
     
-    if (character == '\n')
-        USART_Putchar('\r');
-}
+      if (character == '\n')
+          USART_Putchar('\r');
+
+  }
 
 - Remember is Example, the function is available into library
 
-Example when HANDLING_BITS is disable
+Example when HANDLING_BITS is disable:
 
-void USART_Putchar(unsigned char character) {
-    while (!(UCSR0A & _BV(UDRE0)));
-    UDR0 = character;
-}
+  void USART_Putchar(unsigned char character) {
+  
+      while (!(UCSR0A & _BV(UDRE0)));
+      UDR0 = character;
+  
+  }
 
 # LICENSE
 
