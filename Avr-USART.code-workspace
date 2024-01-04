@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "Example usart RS232",
+			"path": "Example usart RS232"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"atmega328pb.h": "c",
+			"io.h": "c",
+			"iom328p.h": "c",
+			"iom328pb.h": "c"
+		}
+	}
+}

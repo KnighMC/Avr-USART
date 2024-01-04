@@ -3,31 +3,31 @@
 int main(int argc, char const* argv[])
 {
 
-  USART_Init(9600);               // Initialized Baud Rate in 9600
+    fullInitialize_USART(9600, 8, 0, 1);               // Initialized Baud Rate in 9600
 
-  /*  send characters of "HOLA\n" */
-  USART_Putchar('H');
-  USART_Putchar('O');
-  USART_Putchar('L');
-  USART_Putchar('A');
-  USART_Putchar('\n');
+    /*  send characters of "HOLA\n" */
+    USART_transmitChar('H');
+    USART_transmitChar('O');
+    USART_transmitChar('L');
+    USART_transmitChar('A');
+    USART_transmitChar('\n');
 
-  for (;;) {
+    for (;;) {
 
-    char data = USART_Getchar();  //Receive data
+        char data = USART_receiveChar();  //Receive data
 
-    if (data == '1') {
+        if (data == '1') {
 
-      /*  send characters of "Ok\n  "*/
-      USART_Putchar('O');
-      USART_Putchar('k');
-      USART_Putchar('\n');
+            /*  send characters of "Ok\n  "*/
+            USART_transmitChar('O');
+            USART_transmitChar('k');
+            USART_transmitChar('\n');
+
+        }
 
     }
 
-  }
-
-  return 0;
+    return 0;
 }
 
 /************************************************************
